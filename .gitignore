@@ -1,0 +1,23 @@
+# Binário final
+fractol
+
+# Objetos
+obj/
+*.o
+
+# Libs compiladas
+libft/libft.a
+printf/libftprintf.a
+minilibx-linux/libmlx.a
+
+# Arquivos temporários
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Build / debug
+*.out
+*.log
+vgcore.*
+a.out
