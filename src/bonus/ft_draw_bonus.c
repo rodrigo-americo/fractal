@@ -6,7 +6,7 @@
 /*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/26 15:16:51 by rgregori          #+#    #+#             */
-/*   Updated: 2025/09/02 11:52:19 by rgregori         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:32:54 by rgregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,26 +33,26 @@ void	ft_prepare_vm(t_state *st)
 	st->vm.scale_im = st->vm.span_im / (st->height - 1);
 }
 
-void	ft_render_frame(t_state *st)
-{
-	int		x;
-	int		y;
-	int		iters;
-	double	z2;
+// void	ft_render_frame(t_state *st)
+// {
+// 	int		x;
+// 	int		y;
+// 	int		iters;
+// 	double	z2;
 
-	ft_prepare_vm(st);
-	y = 0;
-	while (y < st->height)
-	{
-		x = 0;
-		while (x < st->width)
-		{
-			iters = ft_calculate_iters(st, x, y, &z2);
-			ft_put_pixel(st, x, y,
-				ft_color_from_smooth(iters, st->max_iter, z2, st->palette_id));
-			x++;
-		}
-		y++;
-	}
-	st->redraw = 0;
-}
+// 	ft_prepare_vm(st);
+// 	y = 0;
+// 	while (y < st->height)
+// 	{
+// 		x = 0;
+// 		while (x < st->width)
+// 		{
+// 			iters = ft_calculate_iters(st, x, y, &z2);
+// 			ft_put_pixel(st, x, y,
+// 				ft_color_from_smooth(iters, st->max_iter, z2, st->palette_id));
+// 			x++;
+// 		}
+// 		y++;
+// 	}
+// 	st->redraw = 0;
+// }

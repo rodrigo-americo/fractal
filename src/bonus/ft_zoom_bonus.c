@@ -6,7 +6,7 @@
 /*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 10:37:29 by rgregori          #+#    #+#             */
-/*   Updated: 2025/09/05 10:38:51 by rgregori         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:45:51 by rgregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static int	ft_update_max_iter(t_state *st)
 	if (span_re_inicial == 0.0)
 		span_re_inicial = st->max_re - st->min_re;
 	factor = span_re_inicial / st->vm.span_re;
-	st->max_iter = iter_base + 20 * log2(factor);
+	st->max_iter = iter_base + 50 * log2(factor);
 	if (st->max_iter < iter_base)
 		st->max_iter = iter_base;
 	return (st->max_iter);

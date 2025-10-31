@@ -15,7 +15,7 @@ SRCS_MANDATORY_NAMES := main.c ft_free.c ft_utils_eventos.c ft_draw.c ft_mandel.
 						ft_color_smooth.c
 SRCS_BONUS_NAMES     := main_bonus.c ft_free_bonus.c ft_utils_eventos_bonus.c ft_draw_bonus.c ft_mandel_bonus.c \
                         ft_julia_bonus.c ft_zoom_bonus.c ft_inits_bonus.c ft_parse_bonus.c ft_calculate_iters_bonus.c \
-						ft_color_smooth_bonus.c ft_burning_ship_bonus.c ft_move_bonus.c
+						ft_color_smooth_bonus.c ft_burning_ship_bonus.c ft_move_bonus.c ft_power_draw.c
 
 SRCS_MANDATORY := $(addprefix $(SRC_MANDATORY_DIR)/,$(SRCS_MANDATORY_NAMES))
 SRCS_BONUS     := $(addprefix $(SRC_BONUS_DIR)/,$(SRCS_BONUS_NAMES))

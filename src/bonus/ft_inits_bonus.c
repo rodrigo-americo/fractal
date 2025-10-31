@@ -6,7 +6,7 @@
 /*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/29 13:22:26 by rgregori          #+#    #+#             */
-/*   Updated: 2025/09/02 11:40:14 by rgregori         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:35:38 by rgregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,12 @@ void	ft_init_vals(t_state *st, t_args *ar)
 	st->pan_ratio = 0.05;
 	st->redraw = 1;
 	st->zoom_factor = 0.9;
-	st->max_iter = 150;
+	st->max_iter = 5000;
 	st->escape_sq = 4.0;
 	st->keys = (t_key_maps){0};
 	st->palette_id = 0;
+	st->tile_size = 64;
+	
 }
 
 int	ft_handle_start_img(t_state *st)

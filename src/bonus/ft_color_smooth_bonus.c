@@ -6,7 +6,7 @@
 /*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/28 14:54:39 by rgregori          #+#    #+#             */
-/*   Updated: 2025/09/05 10:39:13 by rgregori         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:42:43 by rgregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int	ft_color_from_smooth(int iters, int max_iter, double z2, int palette_id)
 	if (iters >= max_iter)
 		return (0x000000);
 	nu = iters + 1.0 - log2(log(sqrt(z2)));
-	t = nu / (double)max_iter;
+	t = log(nu + 1) / log(max_iter + 1);
 	if (t < 0.0)
 		t = 0.0;
 	if (t > 1.0)

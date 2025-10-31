@@ -6,7 +6,7 @@
 /*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 11:55:53 by rgregori          #+#    #+#             */
-/*   Updated: 2025/09/02 11:31:18 by rgregori         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:23:05 by rgregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	st = ft_init_state(&ar, "fractol");
 	if (!st)
 		return (1);
-	ft_render_frame(st);
+	ft_render_frame_parallel(st);
 	mlx_put_image_to_window(st->mlx, st->win, st->img, 0, 0);
 	mlx_hook(st->win, 2, 1L << 0, ft_key_press, st);
 	mlx_hook(st->win, 3, 1L << 1, ft_key_release, st);

@@ -6,7 +6,7 @@
 /*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 12:16:37 by rgregori          #+#    #+#             */
-/*   Updated: 2025/09/05 15:23:36 by rgregori         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:31:31 by rgregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,9 @@
 # include "mlx.h"
 # include "libft.h"
 # include "ft_printf.h"
+# include <pthread.h>
 # include <stdlib.h>
+# include <math.h>
 
 # define KEY_ESC     65307
 # define KEY_LEFT    65361
@@ -90,9 +92,32 @@ typedef struct s_state
 	int			palette_id;
 	double		escape_sq;
 	double		zoom_factor;
+	int			tile_size;
 	t_key_maps	keys;
 	t_vm		vm;
 }	t_state;
+
+typedef struct s_tile
+{
+	int	start_x;
+	int	start_y;
+	int	end_x;
+	int	end_y;
+} t_tile;
+
+typedef struct s_work_queue{
+	
+	t_tile	*tiles;
+	int		num_tiles;
+	int		next_tile;
+	pthread_mutex_t	work_mutex;
+} t_work_queue;
+
+typedef struct s_thread_data
+{
+	t_state			*st;
+	t_work_queue	*queue;
+}	t_thread_data;
 
 int		ft_key_press(int keycode, void *param);
 int		ft_key_release(int keycode, void *param);
@@ -121,5 +146,10 @@ int		ft_mouse_handler(int button, int x, int y, void *param);
 void	ft_handle_move(t_state *st, double dx, double dy);
 void	ft_init_arg(t_args *ar);
 t_state	*ft_init_state(t_args *ar, char *title);
+void	ft_put_pixel(t_state *st, int x, int y, int color);
 void	print_usage(void);
+t_work_queue *ft_create_work_queue(t_state *st);
+void render_tile(t_state *st, t_tile *tile);
+void ft_render_frame_parallel(t_state *st);
+void *ft_worker_thread(void *arg);
 #endif 

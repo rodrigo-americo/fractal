@@ -6,7 +6,7 @@
 /*   By: rgregori <rgregori@student.42sp.org.br>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/08/25 12:28:23 by rgregori          #+#    #+#             */
-/*   Updated: 2025/09/02 11:50:09 by rgregori         ###   ########.fr       */
+/*   Updated: 2025/10/31 18:23:22 by rgregori         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int	ft_update(void *param)
 	ft_handle_move(st, dx, dy);
 	if (st->redraw)
 	{
-		ft_render_frame(st);
+		ft_render_frame_parallel(st);
 		mlx_put_image_to_window(st->mlx, st->win, st->img, 0, 0);
 		st->redraw = 0;
 	}
